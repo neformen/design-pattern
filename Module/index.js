@@ -1,4 +1,4 @@
-let HostelModule = ( () => {
+let HostelModule = (() => {
     const MAXSTUDENT = 100;
     let listOfStudents = [];
 
