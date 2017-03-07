@@ -13,24 +13,26 @@ CustomElement.prototype = (() => {
         el.id = this.id;
         el.innerHtml = this.context;
 
-        for(let prop in opts) {
-            el.style[prop] = opts[prop];
+        for(let prop in this.opts) {
+            el.style[prop] = this.opts[prop];
         }
     }
 
-    let setColor = (color) => {
-        opts["color"] = color;
+    let setColor = function(color) {
+        this.opts["color"] = color;
+        opts++;
     };
 
-    let setFontSize = (fontSize) => {
-        opts["font-size"] = fontSize + "px";
+    let setFontSize = function(fontSize) {
+        this.opts["font-size"] = fontSize + "px";
     };
 
-    let setBackgroundColor = (color) => {
-        opts["background-color"] = color;
+    let setBackgroundColor = function(color) {
+        this.opts["background-color"] = color;
     }
 
     return {
+        constructor: CustomElement,
         create: createHtmlElemet,
         setColorText: setColor,
         setFontSize: setFontSize,
@@ -38,3 +40,15 @@ CustomElement.prototype = (() => {
     };
 })();
 
+let customDiv = new CustomElement({
+    selector: "div",
+    className: "my-div",
+    innerText: "Lorem ipsum"
+});
+
+
+let customSpan = new CustomElement({
+    selector: "span",
+    className: "my-span",
+    innerText: "Lorem ipsum"
+});
