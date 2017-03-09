@@ -1,5 +1,5 @@
 let figureDraw = (() => {
-    let body;
+    let body = document.body;
 
     let createElementWithClassOrId = ({className, id}) => {
         let el = document.createElement("div");
