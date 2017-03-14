@@ -27,12 +27,12 @@ var mediator = (function() {
 
 }());
 
-mediator.name = "tim";
+mediator.name = "Vasyl";
 mediator.subscribe('nameChange', function(arg) {
     console.log(this.name);
     this.name = arg;
     console.log(this.name);
 });
 
-mediator.publish('nameChange', 'david');
+mediator.publish('nameChange', 'Taras');
 
